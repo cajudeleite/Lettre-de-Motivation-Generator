@@ -2,11 +2,11 @@ require "open-uri"
 require "nokogiri"
 require "prawn"
 
-name = "Styven H"
-address = "Chez moi"
-city = "Ma ville"
-phone = "06 12 34 56 78"
-mail = "Mon mail"
+name = "Devooght-Ozenne Debaz Nathan"
+address = "11 rue Albert Priolet"
+city = "Saint-Germain-en-Laye"
+phone = "06 41 34 24 06"
+mail = "devoog_n@etna-alternance.net"
 today = Time.now.strftime("%d/%m/%Y")
 puts "URL de l'offre:"
 
@@ -49,24 +49,16 @@ end
 # end
 
 system "clear"
-puts "Fait à #{city}, le #{today}."
-puts ""
-puts "Objet : #{reference}"
-puts ""
-puts "Madame, Monsieur,"
-puts ""
-puts "Afin de mener à bien mes études et mes projets, je souhaite approfondir mes connaissances dans le domaine de l’informatique."
-puts "#{company.capitalize} est reconnue dans le secteur de #{area}, c’est une des raisons qui ont forcément attiré mon attention. Travailler en alternance dans votre entreprise me donnerait l’opportunité de mettre en pratique mes compétences techniques ainsi que les notions étudiées et de consolider une solide expérience professionnelle."
-puts ""
-puts "Grâce à mes précédents projets réalisés à ETNA,  je suis conscient des exigences et des capacités requises pour développer #{reference.downcase}. Sérieux et motivé, je possède les qualités d’adaptation indispensables à la réussite d’une formation en alternance."
-puts ""
-puts "Actuellement étudiant chez ETNA, je souhaite acquérir et mettre en pratique mes compétences. Pour être mieux préparé au métier de développeur, j’ai choisi la voie de l’alternance. C’est pourquoi je suis à la recherche d’une entreprise qui me permettrait d’allier enseignement théorique et formation pratique."
-puts ""
-puts "Je reste à votre disposition pour tous renseignements complémentaires ou pour fixer tout rendez-vous à votre convenance."
-puts ""
-puts "Veuillez agréer, Madame, Monsieur, l’expression de mes salutations distinguées."
 
 Prawn::Document.generate("lettredemotivation.pdf") do
+    text name
+    text address
+    text city
+    text phone
+    text mail
+    text "                                                                                                                    #{company.capitalize}"
+    text "                                                                                                                    #{location.capitalize}"
+    text "\n"
     text "Fait à #{city}, le #{today}."
     text "\n"
     text "Objet : #{reference}"
@@ -74,9 +66,9 @@ Prawn::Document.generate("lettredemotivation.pdf") do
     text "Madame, Monsieur,"
     text "\n"
     text "Afin de mener à bien mes études et mes projets, je souhaite approfondir mes connaissances dans le domaine de l’informatique."
-    text "#{company.capitalize} est reconnue dans le secteur de #{area}, c’est une des raisons qui ont forcément attiré mon attention. Travailler en alternance dans votre entreprise me donnerait l’opportunité de mettre en pratique mes compétences techniques ainsi que les notions étudiées et de consolider une solide expérience professionnelle."
+    text "#{company.capitalize} est reconnue dans le secteur de #{area.downcase}, c’est une des raisons qui ont forcément attiré mon attention. Travailler en alternance dans votre entreprise me donnerait l’opportunité de mettre en pratique mes compétences techniques ainsi que les notions étudiées et de consolider une solide expérience professionnelle."
     text "\n"
-    text "Grâce à mes précédents projets réalisés à ETNA,  je suis conscient des exigences et des capacités requises pour développer #{reference.downcase}. Sérieux et motivé, je possède les qualités d’adaptation indispensables à la réussite d’une formation en alternance."
+    text "Grâce à mes précédents projets réalisés à ETNA,  je suis conscient des exigences et des capacités requises pour être un #{reference.downcase}. Sérieux et motivé, je possède les qualités d’adaptation indispensables à la réussite d’une formation en alternance."
     text "\n"
     text "Actuellement étudiant chez ETNA, je souhaite acquérir et mettre en pratique mes compétences. Pour être mieux préparé au métier de développeur, j’ai choisi la voie de l’alternance. C’est pourquoi je suis à la recherche d’une entreprise qui me permettrait d’allier enseignement théorique et formation pratique."
     text "\n"
